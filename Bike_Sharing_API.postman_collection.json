@@ -1,0 +1,534 @@
+{
+  "info": {
+    "_postman_id": "bikesharing-api-2026",
+    "name": "Bike Sharing Management API",
+    "description": "Collection Postman per testare l'API REST del sistema di ticketing e manutenzione bike sharing del Comune di Repetita Juvant",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🚴 BICICLETTE",
+      "item": [
+        {
+          "name": "GET - Tutte le biciclette",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/bikes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["bikes"]
+            },
+            "description": "Ottiene la lista completa di tutte le 100 biciclette nel sistema"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Bicicletta per ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/bikes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["bikes", "1"]
+            },
+            "description": "Ottiene i dettagli di una bicicletta specifica"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Bici di una stazione",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/bikes/station/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["bikes", "station", "1"]
+            },
+            "description": "Ottiene tutte le biciclette assegnate a una stazione specifica"
+          },
+          "response": []
+        },
+        {
+          "name": "POST - Crea nuova bicicletta",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/bikes?code=BIKE-101&stationId=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["bikes"],
+              "query": [
+                {"key": "code", "value": "BIKE-101"},
+                {"key": "stationId", "value": "1"}
+              ]
+            },
+            "description": "Crea una nuova bicicletta e l'assegna a una stazione"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT - Sposta bici a stazione",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/bikes/1/station?stationId=2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["bikes", "1", "station"],
+              "query": [
+                {"key": "stationId", "value": "2"}
+              ]
+            },
+            "description": "Sposta una bicicletta da una stazione a un'altra (es. dopo manutenzione)"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE - Elimina bicicletta",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/bikes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["bikes", "1"]
+            },
+            "description": "Elimina una bicicletta dal sistema (quando è fuori servizio)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "🏢 STAZIONI",
+      "item": [
+        {
+          "name": "GET - Tutte le stazioni",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stations",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stations"]
+            },
+            "description": "Ottiene la lista di tutte le 10 stazioni del bike sharing"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Stazione per ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stations/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stations", "1"]
+            },
+            "description": "Ottiene i dettagli di una stazione specifica"
+          },
+          "response": []
+        },
+        {
+          "name": "POST - Crea nuova stazione",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stations?name=Nuova%20Stazione",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stations"],
+              "query": [
+                {"key": "name", "value": "Nuova Stazione"}
+              ]
+            },
+            "description": "Crea una nuova stazione di bike sharing"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT - Aggiorna stazione",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stations/1?name=Centro%20Rinominato",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stations", "1"],
+              "query": [
+                {"key": "name", "value": "Centro Rinominato"}
+              ]
+            },
+            "description": "Aggiorna il nome di una stazione"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE - Elimina stazione",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stations/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stations", "1"]
+            },
+            "description": "Elimina una stazione dal sistema"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "👨‍🔧 TECNICI",
+      "item": [
+        {
+          "name": "GET - Tutti i tecnici",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/technicians",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["technicians"]
+            },
+            "description": "Ottiene la lista dei 5 tecnici disponibili"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Tecnico per ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/technicians/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["technicians", "1"]
+            },
+            "description": "Ottiene i dettagli di un tecnico specifico"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Carico di lavoro tecnico",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/technicians/1/workload?date=2026-03-02",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["technicians", "1", "workload"],
+              "query": [
+                {"key": "date", "value": "2026-03-02", "disabled": true}
+              ]
+            },
+            "description": "Ottiene il carico di lavoro di un tecnico per una data specifica (senza parametro usa oggi)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Interventi di un tecnico",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/technicians/1/tickets?status=COMPLETED",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["technicians", "1", "tickets"],
+              "query": [
+                {"key": "status", "value": "COMPLETED", "disabled": true}
+              ]
+            },
+            "description": "Ottiene gli interventi assegnati a un tecnico, opzionalmente filtrati per stato (OPEN, ASSIGNED, IN_PROGRESS, COMPLETED)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Overview team",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/technicians/stats/overview",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["technicians", "stats", "overview"]
+            },
+            "description": "Ottiene una panoramica del carico di lavoro di tutti i tecnici per la giornata odierna"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "🎫 TICKET (SEGNALAZIONI)",
+      "item": [
+        {
+          "name": "GET - Tutti i ticket",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/tickets",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["tickets"]
+            },
+            "description": "Ottiene la lista di tutti i ticket di manutenzione nel sistema"
+          },
+          "response": []
+        },
+        {
+          "name": "POST - Crea nuovo ticket",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/tickets?bikeId=1&issueType=BRAKES",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["tickets"],
+              "query": [
+                {"key": "bikeId", "value": "1"},
+                {"key": "issueType", "value": "BRAKES", "description": "Può essere: BRAKES, TIRES, LIGHTS"}
+              ]
+            },
+            "description": "Crea un nuovo ticket di segnalazione per un problema in una bicicletta. issueType può essere BRAKES (freni), TIRES (gomme), LIGHTS (luci)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT - Aggiorna stato ticket",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/tickets/1/status?status=IN_PROGRESS",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["tickets", "1", "status"],
+              "query": [
+                {"key": "status", "value": "IN_PROGRESS", "description": "Può essere: OPEN, ASSIGNED, IN_PROGRESS, COMPLETED"}
+              ]
+            },
+            "description": "Aggiorna lo stato di un ticket. Stati: OPEN, ASSIGNED, IN_PROGRESS, COMPLETED"
+          },
+          "response": []
+        },
+        {
+          "name": "POST - Assegna ticket ai tecnici",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/tickets/assign",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["tickets", "assign"]
+            },
+            "description": "Esegue l'assegnazione automatica di tutti i ticket aperti ai tecnici disponibili. L'algoritmo assegna al tecnico con meno interventi (max 8 al giorno)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "📊 STATISTICHE",
+      "item": [
+        {
+          "name": "GET - Statistiche mensili",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/statistics/monthly?year=2026&month=3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["statistics", "monthly"],
+              "query": [
+                {"key": "year", "value": "2026"},
+                {"key": "month", "value": "3"}
+              ]
+            },
+            "description": "Ottiene le statistiche generali del mese: totale ticket, completati, aperti, tasso di completamento"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Analisi per tipo di problema",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/statistics/issues?year=2026&month=3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["statistics", "issues"],
+              "query": [
+                {"key": "year", "value": "2026"},
+                {"key": "month", "value": "3"}
+              ]
+            },
+            "description": "Analizza la distribuzione dei problemi segnalati: freni, gomme, luci. Mostra percentuali e il problema più frequente"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Performance tecnici",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/statistics/technicians?year=2026&month=3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["statistics", "technicians"],
+              "query": [
+                {"key": "year", "value": "2026"},
+                {"key": "month", "value": "3"}
+              ]
+            },
+            "description": "Mostra la performance di ogni tecnico: ticket totali assegnati, completati, tasso di completamento"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Tempo medio di risoluzione",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/statistics/resolution-time?year=2026&month=3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["statistics", "resolution-time"],
+              "query": [
+                {"key": "year", "value": "2026"},
+                {"key": "month", "value": "3"}
+              ]
+            },
+            "description": "Calcola il numero medio di giorni per risolvere i problemi, il più veloce e il più lento"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Problemi ricorrenti",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/statistics/recurring-problems?year=2026&month=3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["statistics", "recurring-problems"],
+              "query": [
+                {"key": "year", "value": "2026"},
+                {"key": "month", "value": "3"}
+              ]
+            },
+            "description": "Identifica le biciclette con più problemi nel mese. Utile per individuare bici che hanno bisogno di manutenzione pesante"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "🔗 UTILITY",
+      "item": [
+        {
+          "name": "GET - Swagger UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/swagger-ui.html",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["swagger-ui.html"]
+            },
+            "description": "Accedi all'interfaccia Swagger per visualizzare e testare l'API con UI interattiva"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Health check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/actuator/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["actuator", "health"]
+            },
+            "description": "Verifica che il server sia online e funzionante"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - OpenAPI JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/v3/api-docs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["v3", "api-docs"]
+            },
+            "description": "Scarica la specifica OpenAPI 3.0 in formato JSON"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
